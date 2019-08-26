@@ -50,7 +50,7 @@ def change_all_occurrences(path_to_folder):
                 print('old name:', files)
                 os.rename(os.path.join(path_xslt, files), os.path.join(path_xslt, new_name))
                 print('new name:', new_name)
-            elif str(files).endswith(').xslt') or str(files).endswith('examination.xslt'):
+            elif str(files).endswith(').xslt') or str(files).endswith('examination.xslt') or str(files).find('screen') == -1:
                 new_name = str(files).replace('openEHR-EHR-COMPOSITION.t_', '')
                 new_name = new_name.replace('.xslt', '')
                 new_name = new_name + '-display_form.xslt'
@@ -82,7 +82,7 @@ def change_one_occurrence(path_cct_dir):
             print('old name:', files)
             os.rename(os.path.join(path_xslt_folder, files), os.path.join(path_xslt_folder, new_name))
             print('new name:', new_name)
-        elif str(files).endswith(').xslt') or str(files).endswith('examination.xslt'):
+        elif str(files).endswith(').xslt') or str(files).endswith('examination.xslt') or str(files).find('screen') == -1:
             new_name = str(files).replace('openEHR-EHR-COMPOSITION.t_', '')
             new_name = new_name.replace('.xslt', '')
             new_name = new_name + '-display_form.xslt'
