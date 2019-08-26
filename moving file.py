@@ -46,23 +46,36 @@ def change_all_occurrences(path_to_folder):
                 print('empty xslt_screen folder removed')
         for files in os.listdir(path_xslt):
             if str(files).endswith('.screen.xslt'):
-                new_name = str(files).replace('openEHR-EHR-COMPOSITION.t_', '')
-                new_name = new_name.replace('.screen.xslt', '')
-                new_name = new_name + '-display_form_screen.xslt'
-                print('**************************************')
-                print('changing name of xslt_screen...')
-                print('old name:', files)
-                os.rename(os.path.join(path_xslt, files), os.path.join(path_xslt, new_name))
-                print('new name:', new_name)
+                if str(files).find('openEHR-EHR-COMPOSITION.t_') != -1:
+                    new_name = str(files).replace('openEHR-EHR-COMPOSITION.t_', '')
+                if str(files).find('openEHR-EHR-COMPOSITION. t_') != -1:
+                    new_name = str(files).replace('openEHR-EHR-COMPOSITION. t_', '')
+                    new_name = new_name.replace('.screen.xslt', '')
+                    new_name = new_name + '-display_form_screen.xslt'
+                    print('**************************************')
+                    print('changing name of xslt_screen...')
+                    print('old name:', files)
+                    os.rename(os.path.join(path_xslt, files), os.path.join(path_xslt, new_name))
+                    print('new name:', new_name)
             elif str(files).endswith(').xslt') or str(files).endswith('examination.xslt') or str(files).find('screen') == -1:
-                new_name = str(files).replace('openEHR-EHR-COMPOSITION.t_', '')
-                new_name = new_name.replace('.xslt', '')
-                new_name = new_name + '-display_form.xslt'
-                print('**************************************')
-                print('changing name of xslt...')
-                print('old name:', files)
-                os.rename(os.path.join(path_xslt, files), os.path.join(path_xslt, new_name))
-                print('new name:', new_name)
+                if str(files).find('openEHR-EHR-COMPOSITION.t_') != -1:
+                    new_name = str(files).replace('openEHR-EHR-COMPOSITION.t_', '')
+                    new_name = new_name.replace('.xslt', '')
+                    new_name = new_name + '-display_form.xslt'
+                    print('**************************************')
+                    print('changing name of xslt...')
+                    print('old name:', files)
+                    os.rename(os.path.join(path_xslt, files), os.path.join(path_xslt, new_name))
+                    print('new name:', new_name)
+                if str(files).find('openEHR-EHR-COMPOSITION. t_') != -1:
+                    new_name = str(files).replace('openEHR-EHR-COMPOSITION. t_', '')
+                    new_name = new_name.replace('.xslt', '')
+                    new_name = new_name + '-display_form.xslt'
+                    print('**************************************')
+                    print('changing name of xslt...')
+                    print('old name:', files)
+                    os.rename(os.path.join(path_xslt, files), os.path.join(path_xslt, new_name))
+                    print('new name:', new_name)
 
 #Перемещение заданного xslt_screen
 def change_one_occurrence(path_cct_dir):
@@ -79,21 +92,39 @@ def change_one_occurrence(path_cct_dir):
             print('empty xslt_screen folder removed')
     for files in os.listdir(path_xslt_folder):
         if str(files).endswith('.screen.xslt'):
-            new_name = str(files).replace('openEHR-EHR-COMPOSITION.t_', '')
-            new_name = new_name.replace('.screen.xslt', '')
-            new_name = new_name + '-display_form_screen.xslt'
-            print('changing name of xslt_screen')
-            print('old name:', files)
-            os.rename(os.path.join(path_xslt_folder, files), os.path.join(path_xslt_folder, new_name))
-            print('new name:', new_name)
+            if str(files).find('openEHR-EHR-COMPOSITION.t_') != -1:
+                new_name = str(files).replace('openEHR-EHR-COMPOSITION.t_', '')
+                new_name = new_name.replace('.screen.xslt', '')
+                new_name = new_name + '-display_form_screen.xslt'
+                print('changing name of xslt_screen')
+                print('old name:', files)
+                os.rename(os.path.join(path_xslt_folder, files), os.path.join(path_xslt_folder, new_name))
+                print('new name:', new_name)
+            if str(files).find('openEHR-EHR-COMPOSITION. t_') != -1:
+                new_name = str(files).replace('openEHR-EHR-COMPOSITION. t_', '')
+                new_name = new_name.replace('.screen.xslt', '')
+                new_name = new_name + '-display_form_screen.xslt'
+                print('changing name of xslt_screen')
+                print('old name:', files)
+                os.rename(os.path.join(path_xslt_folder, files), os.path.join(path_xslt_folder, new_name))
+                print('new name:', new_name)
         elif str(files).endswith(').xslt') or str(files).endswith('examination.xslt') or str(files).find('screen') == -1:
-            new_name = str(files).replace('openEHR-EHR-COMPOSITION.t_', '')
-            new_name = new_name.replace('.xslt', '')
-            new_name = new_name + '-display_form.xslt'
-            print('changing name of XSLT')
-            print('old name:', files)
-            os.rename(os.path.join(path_xslt_folder, files), os.path.join(path_xslt_folder, new_name))
-            print('new name:', new_name)
+            if str(files).find('openEHR-EHR-COMPOSITION.t_') != -1:
+                new_name = str(files).replace('openEHR-EHR-COMPOSITION.t_', '')
+                new_name = new_name.replace('.xslt', '')
+                new_name = new_name + '-display_form.xslt'
+                print('changing name of XSLT')
+                print('old name:', files)
+                os.rename(os.path.join(path_xslt_folder, files), os.path.join(path_xslt_folder, new_name))
+                print('new name:', new_name)
+            if str(files).find('openEHR-EHR-COMPOSITION. t_') != -1:
+                new_name = str(files).replace('openEHR-EHR-COMPOSITION. t_', '')
+                new_name = new_name.replace('.xslt', '')
+                new_name = new_name + '-display_form.xslt'
+                print('changing name of XSLT')
+                print('old name:', files)
+                os.rename(os.path.join(path_xslt_folder, files), os.path.join(path_xslt_folder, new_name))
+                print('new name:', new_name)
 
 def help():
     print(
