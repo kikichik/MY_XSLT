@@ -104,7 +104,7 @@ def meta_add(path_to_file, path_to_doc):
     for child in head:
         if str(child.attrib.keys()).find('fork') != -1:
             print('---------------------')
-            print('found wrong meta-tag!')
+            print('deleted wrong meta-tag!')
             print('---------------------')
             head.remove(child)
         head.insert(1, xslt_version)
