@@ -88,9 +88,6 @@ def meta_add(path_to_file, path_to_doc):
     path_to_xslt = path_to_file
     file = open(path_to_xslt, "rb").read()
     data = file
-    # tree = lxml.etree.fromstring(data)
-    for string in data:
-        str(string).replace(r'\n', '')
     tree = lxml.etree.fromstring(data)
     for child in tree:
         if child.tag == r'{http://www.w3.org/1999/XSL/Transform}template':
@@ -102,16 +99,16 @@ def meta_add(path_to_file, path_to_doc):
     xslt_version = lxml.etree.Element("meta", {'xslt_version': '1.0.0'})
     spec_version = lxml.etree.Element("meta", {'spec_version': spec_version_meta(path_to_doc)})
     for child in head:
-        if str(child.attrib.keys()).find('fork') != -1:
+        if str(child.attrib.keys()).find('fork') != -1 or str(child.attrib.keys()).find('author') != -1:
             print('---------------------')
-            print('deleted wrong meta-tag!')
+            print('deleted wrong meta-tag:', str(child.attrib.keys()))
             print('---------------------')
             head.remove(child)
-        head.insert(1, xslt_version)
-        head.insert(1, spec_version)
+    head.insert(1, xslt_version)
+    head.insert(1, spec_version)
     print('xslt version: 1.0.0')
     with open(path_to_file, "wb") as new_file:
-        new_file.write(b'<?xml version="1.0" encoding="UTF-8"?>\n' + lxml.etree.tostring(tree, encoding="utf-8"))
+        new_file.write(b'<?xml version="1.0" encoding="UTF-8"?>\n' + lxml.etree.tostring(tree, encoding="utf-8", pretty_print=True))
 
 #Ищем название вхождение названия одного из талонов
 def search_talon(path_to_folder):
