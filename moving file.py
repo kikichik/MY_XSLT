@@ -104,8 +104,9 @@ def meta_add(path_to_file, path_to_doc):
             print('deleted wrong meta-tag:', str(child.attrib.keys()))
             print('---------------------')
             head.remove(child)
-    head.insert(1, xslt_version)
-    head.insert(1, spec_version)
+    if path_to_file.find('-display_form') == -1:
+        head.insert(1, xslt_version)
+        head.insert(1, spec_version)
     print('xslt version: 1.0.0')
     with open(path_to_file, "wb") as new_file:
         new_file.write(b'<?xml version="1.0" encoding="UTF-8"?>\n' + lxml.etree.tostring(tree, encoding="utf-8", pretty_print=True))
