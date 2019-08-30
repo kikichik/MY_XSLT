@@ -22,62 +22,47 @@ def spec_version_meta(path_to_doc):
         print('spec version:', '1.0.0')
         return '1.0.0'
 
-
-def change_xslt(files, path_xslt, path_to_doc):
-    if str(files).endswith('screen.xslt'):
-        if str(files).find('openEHR-EHR-COMPOSITION.t_') != -1:
-            new_name = str(files).replace('openEHR-EHR-COMPOSITION.t_', '')
+def change_file(old_name, start, xslt_path, path_to_doc):
+    if str(old_name).endswith('screen.xslt'):
+        if str(old_name).find(start) != -1:
+            new_name = str(old_name).replace(start, '')
             new_name = new_name.replace('.screen.xslt', '')
             new_name = new_name + '-display_form_screen.xslt'
             print('\n')
             print('**************************************')
             print('changing name of xslt_screen...')
-            print('old name:', files)
-            os.rename(os.path.join(path_xslt, files), os.path.join(path_xslt, new_name))
+            print('old name:', old_name)
+            os.rename(os.path.join(xslt_path, old_name), os.path.join(xslt_path, new_name))
             print('new name:', new_name)
-            print('adding meta_tags:', files)
-            meta_add(os.path.join(path_xslt, new_name), path_to_doc)
-        if str(files).find('openEHR-EHR-COMPOSITION. t_') != -1:
-            new_name = str(files).replace('openEHR-EHR-COMPOSITION. t_', '')
-            new_name = new_name.replace('.screen.xslt', '')
-            new_name = new_name + '-display_form_screen.xslt'
+            print('adding meta_tags:', old_name)
+            meta_add(os.path.join(xslt_path, new_name), path_to_doc)
+    elif str(old_name).endswith(').xslt') or str(old_name).endswith('examination.xslt') or str(old_name).find('screen') == -1:
+        if str(old_name).find(start) != -1:
+            new_name = str(old_name).replace(start, '')
+            new_name = new_name.replace('xslt', '')
+            new_name = new_name + '-display_form.xslt'
+            print('\n')
             print('**************************************')
-            print('changing name of xslt_screen...')
-            print('old name:', files)
-            os.rename(os.path.join(path_xslt, files), os.path.join(path_xslt, new_name))
+            print('changing name of xslt...')
+            print('old name:', old_name)
+            os.rename(os.path.join(xslt_path, old_name), os.path.join(xslt_path, new_name))
             print('new name:', new_name)
-            print('adding meta_tags..')
-            meta_add(os.path.join(path_xslt, new_name), path_to_doc)
+            print('adding meta_tags:', old_name)
+            meta_add(os.path.join(xslt_path, new_name), path_to_doc)
+
+
+def change_xslt(files, path_xslt, path_to_doc):
+    if str(files).endswith('screen.xslt'):
+        change_file(files, 'openEHR-EHR-COMPOSITION.t_', path_xslt, path_to_doc)
+        change_file(files, 'openEHR-EHR-COMPOSITION. t_', path_xslt, path_to_doc)
         if str(files).find('display_form') != -1:
             print('\n')
             print('**************************************')
             print('adding meta_tags:', files)
             meta_add(os.path.join(path_xslt, files), path_to_doc)
     elif str(files).endswith(').xslt') or str(files).endswith('examination.xslt') or str(files).find('screen') == -1:
-        if str(files).find('openEHR-EHR-COMPOSITION.t_') != -1:
-            new_name = str(files).replace('openEHR-EHR-COMPOSITION.t_', '')
-            new_name = new_name.replace('.xslt', '')
-            new_name = new_name + '-display_form.xslt'
-            print('\n')
-            print('**************************************')
-            print('changing name of xslt...')
-            print('old name:', files)
-            os.rename(os.path.join(path_xslt, files), os.path.join(path_xslt, new_name))
-            print('new name:', new_name)
-            print('adding meta_tags..')
-            meta_add(os.path.join(path_xslt, new_name), path_to_doc)
-        if str(files).find('openEHR-EHR-COMPOSITION. t_') != -1:
-            new_name = str(files).replace('openEHR-EHR-COMPOSITION. t_', '')
-            new_name = new_name.replace('.xslt', '')
-            new_name = new_name + '-display_form.xslt'
-            print('\n')
-            print('**************************************')
-            print('changing name of xslt...')
-            print('old name:', files)
-            os.rename(os.path.join(path_xslt, files), os.path.join(path_xslt, new_name))
-            print('new name:', new_name)
-            print('adding meta_tags..')
-            meta_add(os.path.join(path_xslt, new_name), path_to_doc)
+        change_file(files, 'openEHR-EHR-COMPOSITION.t_', path_xslt, path_to_doc)
+        change_file(files, 'openEHR-EHR-COMPOSITION. t_', path_xslt, path_to_doc)
         if str(files).find('display_form') != -1:
             print('\n')
             print('**************************************')
