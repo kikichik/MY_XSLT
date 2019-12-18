@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:/C:/Nikita/stashes/json_to_xml.xsl"?>
+<Расширение_МСЭ>
+    <value> [ { "расширение_мсэ": [ [ { "code": "law_representative_type_document", "value": "15" }, { "code": "law_representative_type_document_issued_by", "value": "ОВД Неизвестного района г. Кирза" }, { "code": "law_representative_type_document_series", "value": "5632" }, { "code": "law_representative_type_document_number", "value": "543728" } ] ] } ]</value>
+</Расширение_МСЭ>
