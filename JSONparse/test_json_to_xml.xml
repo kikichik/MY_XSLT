@@ -1,5 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="file:/C:/Nikita/stashes/json_to_xml.xsl"?>
+<?xml-stylesheet type="text/xsl" href="file:/C:/Nikita/MY_XSLT/JSONparse/json_to_xml2.xsl"?>
 <Расширение_МСЭ>
-    <value> [ { "расширение_мсэ": [ [ { "code": "law_representative_type_document", "value": "15" }, { "code": "law_representative_type_document_issued_by", "value": "ОВД Неизвестного района г. Кирза" }, { "code": "law_representative_type_document_series", "value": "5632" }, { "code": "law_representative_type_document_number", "value": "543728" } ] ] } ]</value>
+    <value>
+        {"медико-социальная_экспертиза": [
+        {
+        "расширение_мсэ": [
+        [
+        {
+        "code": "law_representative_type_document",
+        "value": "15"
+        },
+        {
+        "code": "law_representative_type_document_issued_by",
+        "value": "ОВД Неизвестного района г. Кирза"
+        },
+        {
+        "code": "law_representative_type_document_series",
+        "value": "5632"
+        },
+        {
+        "code": "law_representative_type_document_number",
+        "value": "543728"
+        },
+        {
+        "code": "nationality",
+        "value": "Русский"
+        },
+        {
+        "code": "law_representative_type_document_date",
+        "value": "23.12.2019"
+        },
+        {
+        "code":"law_representative_organization",
+        "value":"Организация"
+        },
+        {
+        "code":"law_representative_organization_adress",
+        "value":"ADDRESS"
+        },
+        {
+        "code":"law_representative_organization_ogrn",
+        "value":"OGRN"
+        },
+        {
+        "code":"law_representative_organization_phone",
+        "value":"PHONE"
+        },
+        {
+        "code":"pensioner",
+        "value":"true"
+        },
+        {
+        "code":"protocol_number_mse",
+        "value":"номер_протокола_МСЭ"
+        },
+        {
+        "code":"protocol_date_mse",
+        "value":"дата_протокола_МСЭ"
+        }
+        ]
+        ]
+        }
+        ]
+        }
+    </value>
 </Расширение_МСЭ>
