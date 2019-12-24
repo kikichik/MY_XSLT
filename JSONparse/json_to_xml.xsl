@@ -11,9 +11,21 @@
         <xsl:variable name="расширение_МСЭ">
             <xsl:copy-of select="json-to-xml(*:value)"/>
         </xsl:variable>
+        <!-- Вывод всех value -->
+        <!--<xsl:value-of select="$расширение_МСЭ//*:string/following-sibling::*:string"/>-->
         
-        <xsl:for-each select="$расширение_МСЭ/*:array/*:map/*:array/*:array/*:map/*:string">
-            <div>
+        <xsl:for-each select="$расширение_МСЭ//*:string">
+            <xsl:if test="text() = 'nationality'">
+                <xsl:value-of select="following-sibling::*:string"/>
+            </xsl:if>
+        </xsl:for-each>
+        <!--<xsl:value-of select="$расширение_МСЭ//following-sibling::*:string"/>-->
+        
+        
+        
+        <!--<xsl:for-each select="$расширение_МСЭ//*:string[text()='nationality']">
+            <div style="backgroung-color: red; radius:5px;">
+                
                 <xsl:if test=".[@key='code']">
                     <xsl:text>код: </xsl:text>
                     <xsl:value-of select="."/>
@@ -24,8 +36,8 @@
                     <xsl:value-of select="."/>
                 </xsl:if>
             </div>
-        </xsl:for-each>
-        
+        </xsl:for-each>-->
+        <xsl:copy-of select="$расширение_МСЭ"></xsl:copy-of>
     </xsl:template>
     
 </xsl:stylesheet>
