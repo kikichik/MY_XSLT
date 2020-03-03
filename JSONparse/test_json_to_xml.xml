@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="file:/C:/Nikita/MY_XSLT/JSONparse/json_to_xml2.xsl"?>
+<?xml-stylesheet type="text/xsl" href="json_to_xml.xsl"?>
 <Расширение_МСЭ>
     <value>
         {"медико-социальная_экспертиза": [
